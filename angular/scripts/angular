@@ -1,0 +1,31 @@
+#!/bin/bash
+
+operation=$1
+
+# check for no arguments
+if [ "$*" == "" ]; then
+    echo "No arguments provided, use angular help for options"
+    exit 1
+fi
+
+# list the help options
+if [ $operation == 'help' ] ; then
+  # create the help options later
+  exit 1
+fi
+
+scriptPath=$(dirname $0)
+
+# get the libs
+source $(dirname $0)/create-project.sh
+source $(dirname $0)/create-module.sh
+
+# create a new project
+if [ $operation == "new" ] ; then
+  createProject $2
+fi
+
+# cerate a new module, inside an existing project
+if [ $operation == 'module' ] ; then
+  createModule $2
+fi
