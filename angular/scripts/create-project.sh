@@ -6,19 +6,16 @@ function createProject {
   echo "cerating project $1"
   echo "-------------------------"
 
-  # copy the index file
-  cp "$scriptPath"/../base/index.html .
+  # copy the single files
+  find "$scriptPath"/../base/ -type f -maxdepth 1 -exec cp {} . \;
 
   # create the project structure
   mkdir scripts
   mkdir scripts/modules
 
   # copy over the app, not including any modules
-  cp "$scriptPath"/../base/app.js ./scripts
-  cp -r "$scriptPath"/../base/app ./scripts/modules/
-
-  # copy over the package json
-  cp "$scriptPath"/../base/package.json .
+  cp "$scriptPath"/../base/scripts/app.js ./scripts
+  cp -r "$scriptPath"/../base/scripts/app ./scripts/modules/
 
   # Replace any app name constants in the copied files
   find ./ -type f -exec sed -i "" "s/APPNAME/$1/g" {} \;
