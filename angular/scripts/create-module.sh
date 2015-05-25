@@ -28,6 +28,9 @@ function createModule {
   # rename the template
   mv ./src/scripts/modules/"$kebabCase"/template.html ./src/scripts/modules/"$kebabCase"/"$kebabCase".html
 
-  # add the module to the app
+  #rename the controller
+  mv ./src/scripts/modules/"$kebabCase"/controller.js ./src/scripts/modules/"$kebabCase"/"$controller"Ctrl.js
 
+  # add the module to the app
+  injectAtLine 4 "\ \ require('../$kebabCase').name," ./src/scripts/modules/app/index.js
 }

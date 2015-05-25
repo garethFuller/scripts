@@ -7,7 +7,7 @@ require('./')
 function config($stateProvider) {
   $stateProvider
     .state('PATH', {
-      url: 'PATH',
+      url: '/PATH',
       parent: 'app',
       template: require('./MODNAME.html')
     });
