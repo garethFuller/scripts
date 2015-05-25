@@ -41,5 +41,9 @@ module.exports = {
     files: [
       distPath + '/**'
     ]
-  }
+  },
+  lint: [
+    srcPath + '/scripts/modules/**/*.js',
+    srcPath + '/scripts/app.js'
+  ],
 };

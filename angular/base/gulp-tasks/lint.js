@@ -5,12 +5,12 @@ var stylish = require('jshint-stylish');
 var config = require('./config');
 
 gulp.task('jscs', 'Check JavaScript coding guidelines', function() {
-  return gulp.src(config.bundle.js)
+  return gulp.src(config.lint)
     .pipe(jscs());
 });
 
 gulp.task('jshint', 'Check JavaScript syntax errors', function() {
-  return gulp.src(config.bundle.js)
+  return gulp.src(config.lint)
     .pipe(jshint())
     .pipe(jshint.reporter(stylish))
     .pipe(jshint.reporter('fail'));
