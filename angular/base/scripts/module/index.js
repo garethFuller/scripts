@@ -4,4 +4,4 @@ module.exports = angular.module('app.MODNAME', [
 ]);
 
 require('./config.js');
-require('./CONTROLERNANECtrl.js')
+require('./CONTROLERNANECtrl.js');
