@@ -12,7 +12,7 @@ function createModule {
   # store the kebabcase value of the module name and the normal val
   kebabCase=$( kebabCase $1 )
   # name of the module
-  controller=$1
+  controller=$( ucFirst $1 )
   # path to the module in ui router (first seg of the kebab case)
   path=$( firstChunkHyphen $kebabCase )
 
