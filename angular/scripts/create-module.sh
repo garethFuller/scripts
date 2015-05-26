@@ -32,5 +32,10 @@ function createModule {
   mv ./src/scripts/modules/"$kebabCase"/controller.js ./src/scripts/modules/"$kebabCase"/"$controller"Ctrl.js
 
   # add the module to the app
-  injectAtLine 4 "\ \ require('../$kebabCase').name," ./src/scripts/modules/app/index.js
+  # -0777 read whole file
+  # -i replce inline (had to be seperate on osx)
+  # regex to find last module match 4 and append the new one
+  # perl seems to be better than sed for things like this
+  perl -0777 -i -pe "s/(\'app((.|\n)*)\,)(\n.*)/\1\4\,\n\ \ require('..\/$kebabCase').name/g" ./src/scripts/modules/app/index.js
+
 }
