@@ -2,12 +2,7 @@
 
 function createModule {
 
-  # first check to make sure they have a package.json file at this location
-  # ... this at least indicates we ar at the root of the application
-  if [ ! -s "./package.json" ] ; then
-    echo "Unable to find package json file, please create project first"
-    exit 1
-  fi
+  checkRoot
 
   # store the kebabcase value of the module name and the normal val
   kebabCase=$( kebabCase $1 )
@@ -32,10 +27,10 @@ function createModule {
   mv ./src/scripts/modules/"$kebabCase"/controller.js ./src/scripts/modules/"$kebabCase"/"$controller"Ctrl.js
 
   # add the module to the app
-  # -0777 read whole file
-  # -i replce inline (had to be seperate on osx)
-  # regex to find last module match 4 and append the new one
-  # perl seems to be better than sed for things like this
-  perl -0777 -i -pe "s/(\'app((.|\n)*)\,)(\n.*)/\1\4\,\n\ \ require('..\/$kebabCase').name/g" ./src/scripts/modules/app/index.js
+  appendModule $kebabCase
+
+  echo "-------------------------"
+  echo "module $1 created"
+  echo "-------------------------"
 
 }

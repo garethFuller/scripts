@@ -28,8 +28,11 @@ source $(dirname $0)/util/first-chunk-hyphen.sh
 source $(dirname $0)/util/replace-in.sh
 source $(dirname $0)/util/inject-at-line.sh
 source $(dirname $0)/util/uc-first.sh
+source $(dirname $0)/util/check-root.sh
+source $(dirname $0)/util/append-to-module.sh
 source $(dirname $0)/angular/scripts/create-project.sh
 source $(dirname $0)/angular/scripts/create-module.sh
+source $(dirname $0)/angular/scripts/create-directive.sh
 
 # create a new project
 if [ $operation == "new" ] ; then
@@ -37,6 +40,8 @@ if [ $operation == "new" ] ; then
 # cerate a new module, inside an existing project
 elif [ $operation == 'module' ] ; then
   createModule $2
+elif [ $operation == 'directive' ] ; then
+  createDirective $2
 else
   echo "Unknown command, please use ang help for more info on usage"
   exit 1

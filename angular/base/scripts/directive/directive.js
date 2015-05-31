@@ -14,7 +14,7 @@ function DIRECTIVENAMEDirective() {
   };
 
   // Linking function
-  function link(scope) {
+  function link() {
     // @TODO create the link
   }
 }
