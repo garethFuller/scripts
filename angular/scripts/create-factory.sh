@@ -1,37 +1,34 @@
 #!/bin/bash
 
-function createDirective {
+function createFactory {
 
   checkRoot
 
-  checkIFStandAlone "directive"
+  checkIFStandAlone "factory"
 
-  # store the kebabcase value of the directive name
+  # store the kebabcase value of the factory name
   kebabCase=$( kebabCase $1 )
-  directiveName=$1
+  factoryName=$1
 
   if [ $standAlone == "y" ] ; then
     # create the stand alone module with the name etc they sent in as args
 
     # copy over the files and create the structure
     mkdir src/scripts/modules/"$kebabCase"
-    cp -r "$scriptPath"/base/scripts/directive/ ./src/scripts/modules/"$kebabCase"
+    cp -r "$scriptPath"/base/scripts/service/ ./src/scripts/modules/"$kebabCase"
 
     #replace the constants
-    replaceIn ./src/scripts/modules/"$kebabCase" "DIRECTIVENAME" "$directiveName"
-    replaceIn ./src/scripts/modules/"$kebabCase" "TEMPLATENAME" "$kebabCase"
+    replaceIn ./src/scripts/modules/"$kebabCase" "FACTORYNAME" "$factoryName"
+    replaceIn ./src/scripts/modules/"$kebabCase" "FACTORYMODULE" "$kebabCase"
 
-    # rename the template
-    mv ./src/scripts/modules/"$kebabCase"/template.html ./src/scripts/modules/"$kebabCase"/"$kebabCase".html
-
-    #rename the directive file
-    mv ./src/scripts/modules/"$kebabCase"/directive.js ./src/scripts/modules/"$kebabCase"/"$directiveName".js
+    #rename the service file
+    mv ./src/scripts/modules/"$kebabCase"/service.js ./src/scripts/modules/"$kebabCase"/"$factoryName".js
 
     # add the module to the app
     appendModule $kebabCase
 
     echo "-------------------------"
-    echo "directive $1 created"
+    echo "factory $1 created"
     echo "-------------------------"
 
   else

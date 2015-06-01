@@ -1,5 +1,5 @@
 require('./')
-  .factory('SERVICENAMEService', SERVICENAMEService);
+  .service('SERVICENAME', SERVICENAMEService);
 
 /**
  * @ngInject
