@@ -29,8 +29,6 @@ function createModule {
   # add the module to the app
   appendModule $kebabCase
 
-  echo "-------------------------"
-  echo "module $1 created"
-  echo "-------------------------"
+  log "module $1 created"
 
 }

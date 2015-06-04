@@ -1,10 +1,10 @@
 require('./')
-  .factory('FACTORYNAME', FACTORYNAMEFactory);
+  .factory('CONSTANTONE', CONSTANTONEFactory);
 
 /**
  * @ngInject
  */
-function FACTORYNAMEFactory() {
+function CONSTANTONEFactory() {
 
   // Interface for the factory
   return {};

@@ -1,4 +1,4 @@
-module.exports = angular.module('app.SERVICEMODULE', [
+module.exports = angular.module('app.CONSTANTTWO', [
 ]);
 
-require('./SERVICENAME.js');
+require('./CONSTANTONEService.js');

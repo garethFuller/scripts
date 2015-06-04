@@ -1,10 +1,10 @@
 require('./')
-  .service('SERVICENAME', SERVICENAMEService);
+  .service('CONSTANTONE', CONSTANTONEService);
 
 /**
  * @ngInject
  */
-function SERVICENAMEService() {
+function CONSTANTONEService() {
 
   // Interface for the service
   return {};

@@ -1,15 +1,15 @@
 require('./')
-  .directive('DIRECTIVENAME', DIRECTIVENAMEDirective);
+  .directive('CONSTANTONE', CONSTANTONEDirective);
 
 /**
  * @ngInject
  */
-function DIRECTIVENAMEDirective() {
+function CONSTANTONEDirective() {
 
   return {
     replace: true,
     restrict: 'E',
-    template: require('./TEMPLATENAME.html'),
+    template: require('./CONSTANTTWO.html'),
     link: link
   };
 

@@ -1,4 +1,4 @@
-module.exports = angular.module('app.FACTORYMODULE', [
+module.exports = angular.module('app.CONSTANTTWO', [
 ]);
 
-require('./FACTORYNAME.js');
+require('./CONSTANTONEFactory.js');

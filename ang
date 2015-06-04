@@ -16,6 +16,7 @@ fi
 
 # list the help options
 if [ $operation == "help" ] ; then
+  echo "help docs not yet implemented warte bitte"
   # create the help options later
   exit 1
 fi
@@ -24,11 +25,7 @@ scriptPath=$(dirname $0)/angular
 
 # get the libs
 source $(dirname $0)/util/loader.sh
-source $(dirname $0)/angular/scripts/create-project.sh
-source $(dirname $0)/angular/scripts/create-module.sh
-source $(dirname $0)/angular/scripts/create-service.sh
-source $(dirname $0)/angular/scripts/create-factory.sh
-source $(dirname $0)/angular/scripts/create-directive.sh
+source $(dirname $0)/angular/scripts/loader.sh
 
 # create a new project
 if [ $operation == "new" ] ; then
@@ -42,6 +39,10 @@ elif [ $operation == 'service' ] ; then
   createService $2
 elif [ $operation == 'factory' ] ; then
   createFactory $2
+elif [ $operation == 'constant' ] ; then
+  createConstant $2
+elif [ $operation == 'value' ] ; then
+  createValue $2
 else
   echo "Unknown command, please use ang help for more info on usage"
   exit 1
