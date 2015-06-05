@@ -11,3 +11,4 @@ source $(dirname $0)/angular/scripts/create-factory.sh
 source $(dirname $0)/angular/scripts/create-directive.sh
 source $(dirname $0)/angular/scripts/create-constant.sh
 source $(dirname $0)/angular/scripts/create-value.sh
+source $(dirname $0)/angular/scripts/create-filter.sh

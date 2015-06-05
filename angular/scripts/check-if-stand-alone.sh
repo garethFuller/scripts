@@ -6,7 +6,7 @@ function checkIFStandAlone {
   # user needs to select how they intend to create the module
   while [ "$standAlone" != "y" -a "$standAlone" != "n" ]
   do
-    echo -n "Would you like to create the $1 as a stand alone module? [y or n]: "
+    echo -n "Create $1 as module? [y or n]: "
     read standAlone
   done
 
