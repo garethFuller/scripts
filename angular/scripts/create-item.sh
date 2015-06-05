@@ -38,6 +38,11 @@ function createItem {
     # ask the user which module they would like to create the item in
     module=$( selectModule )
 
+    if [ "$module" == "" ] ; then
+      log "No modules exist please create one first"
+      exit 1
+    fi
+
     # loop through the single files and create the items (extra files)
     if [ $singleFiles ] ; then
       for i in "${singleFiles[@]}"
