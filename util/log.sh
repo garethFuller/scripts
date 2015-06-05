@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function log {
-  echo "---------------------------"
-  echo "$1"
-  echo "---------------------------"
+  echo "$(tput setaf 4)---------------------------"
+  echo "$(tput setaf 2) $1"
+  echo "$(tput setaf 4)---------------------------$(tput sgr0)"
 }
