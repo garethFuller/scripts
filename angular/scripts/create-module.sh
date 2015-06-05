@@ -6,6 +6,10 @@ function createModule {
 
   # store the kebabcase value of the module name and the normal val
   kebabCase=$( kebabCase $1 )
+
+  # first check if an item with the same name already exists
+  checkIfExists $kebabCase
+
   # name of the module
   controller=$( ucFirst $1 )
   # path to the module in ui router (first seg of the kebab case)

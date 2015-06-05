@@ -2,6 +2,7 @@
 
 source $(dirname $0)/angular/scripts/append-to-module.sh
 source $(dirname $0)/angular/scripts/check-if-stand-alone.sh
+source $(dirname $0)/angular/scripts/check-if-exists.sh
 source $(dirname $0)/angular/scripts/select-module.sh
 source $(dirname $0)/angular/scripts/create-item.sh
 source $(dirname $0)/angular/scripts/create-project.sh
