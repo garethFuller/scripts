@@ -11,14 +11,18 @@ function createItem {
   singleFiles=$3
   replaceWith=$4
 
-  itemNameUcFirst=$( ucFirst "$itemType" )
-
-  checkRoot
-
-  checkIFStandAlone "$itemType"
-
   # store the kebabcase value of the directive name
   kebabCase=$( kebabCase $itemName )
+  itemNameUcFirst=$( ucFirst "$itemType" )
+
+  # first check if an item with the same name already exists
+  checkIfExists $kebabCase $itemName $itemNameUcFirst
+
+  # then make sure they are in the right folder location for the operations
+  checkRoot
+
+  # ask the user what type of item they would like to create
+  checkIFStandAlone "$itemType"
 
   if [ $standAlone == "y" ] ; then
 

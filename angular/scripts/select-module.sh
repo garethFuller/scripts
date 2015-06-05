@@ -1,7 +1,5 @@
 #!/bin/bash
-trap "exit 1" TERM
-export TOP_PID=$$
-
+#
 function selectModule {
 
   modules=()
