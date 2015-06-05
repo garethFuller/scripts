@@ -45,6 +45,8 @@ elif [ $operation == 'value' ] ; then
   createValue $2
 elif [ $operation == 'filter' ] ; then
   createFilter $2
+elif [ $operation == 'rm' ] ; then
+  removeItem $2 $3
 else
   echo "Unknown command, please use ang help for more info on usage"
   exit 1
