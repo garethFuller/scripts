@@ -1,5 +1,6 @@
 #!/bin/bash
 
+source $(dirname $0)/angular/scripts/help.sh
 source $(dirname $0)/angular/scripts/append-to-module.sh
 source $(dirname $0)/angular/scripts/check-if-stand-alone.sh
 source $(dirname $0)/angular/scripts/check-if-exists.sh

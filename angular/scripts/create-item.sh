@@ -43,7 +43,7 @@ function createItem {
     module=$( selectModule )
 
     if [ "$module" == "" ] ; then
-      log "No modules exist please create one first"
+      log "No modules exist please create one first" "error"
       exit 1
     fi
 
@@ -60,7 +60,7 @@ function createItem {
 
     # add the require to the config for the module
     echo "require('./"$itemName$itemNameUcFirst".js');" >> ./src/scripts/modules/"$module"/index.js
-     
+
   fi
 
   #replace the constants

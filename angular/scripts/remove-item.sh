@@ -54,6 +54,6 @@ function removeItem {
   done
 
   if [ "$removed" != "yup" ] ; then
-    log "Could not find item $1"
+    log "Could not find item $1" "error"
   fi
 }

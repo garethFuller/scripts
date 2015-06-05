@@ -9,7 +9,7 @@ function checkIfExists {
 
     # first check for an exact match on item names
     if [ "$module" == "$1" ] ; then
-      log "Module with that name already exists please use another name."
+      log "Module with that name already exists please use another name." "error"
       exit 1
     fi
 
@@ -17,7 +17,7 @@ function checkIfExists {
       # now check the files inside that folder to see if there is a file with
       # the same name as the item we want to create
       if [ -e "$f/$2$3.js" ] ; then
-        log "Item with that name already exists within a the module $module"
+        log "Item with that name already exists within a the module $module" "error"
         exit 1
       fi
     fi

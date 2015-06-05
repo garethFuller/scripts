@@ -2,6 +2,16 @@
 
 operation=$1
 
+# get the libs
+source $(dirname $0)/util/loader.sh
+source $(dirname $0)/angular/scripts/loader.sh
+
+# list the help options
+if [ $operation == "help" ] ; then
+  helpDocs
+  exit 1
+fi
+
 # check for no arguments
 if [ "$*" == "" ] ; then
   echo "No arguments provided, use angular help for options"
@@ -14,18 +24,7 @@ if [ $# -lt 2 ] ; then
   exit 1
 fi
 
-# list the help options
-if [ $operation == "help" ] ; then
-  echo "help docs not yet implemented warte bitte"
-  # create the help options later
-  exit 1
-fi
-
 scriptPath=$(dirname $0)/angular
-
-# get the libs
-source $(dirname $0)/util/loader.sh
-source $(dirname $0)/angular/scripts/loader.sh
 
 # create a new project
 if [ $operation == "new" ] ; then

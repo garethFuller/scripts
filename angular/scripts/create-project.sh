@@ -2,9 +2,7 @@
 
 function createProject {
 
-  echo "-------------------------"
-  echo "cerating project $1"
-  echo "-------------------------"
+  log "creating project $1"
 
   # copy the single files (not index file)
   find "$scriptPath"/base/ -type f -maxdepth 1 -not -name "*.html" -exec cp {} . \;
@@ -35,9 +33,7 @@ function createProject {
   # install the node modules
   npm install
 
-  echo "-------------------------"
-  echo "done creating project, starting project"
-  echo "-------------------------"
-
+  log "done creating project, starting project"
+  
   gulp dev
 }
