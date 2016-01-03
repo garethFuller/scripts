@@ -16,6 +16,6 @@ function build {
 
   # zip align the apks
   zipalign -v 4 platforms/android/build/outputs/apk/android-x86-release-unsigned.apk $apkName-x86.apk
-  zipalign -v 4 platforms/android/build/outputs/apk/android-x86-release-unsigned.apk $apkName-armv7.apk
+  zipalign -v 4 platforms/android/build/outputs/apk/android-armv7-release-unsigned.apk $apkName-armv7.apk
 
 }
