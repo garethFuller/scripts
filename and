@@ -1,8 +1,11 @@
 #!/bin/bash
+source $(dirname $0)/util/loader.sh
 source $(dirname $0)/android/loader.sh
 
 operation=$1
 
 if [ $operation == "build" ] ; then
   build $2
+elif [ $operation == 'clark' ] ; then
+  clark $2
 fi
