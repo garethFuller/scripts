@@ -8,4 +8,6 @@ if [ $operation == "build" ] ; then
   build $2
 elif [ $operation == 'clark' ] ; then
   clark $2
+elif [ $operation == 'keygen' ] ; then
+  keygen
 fi
