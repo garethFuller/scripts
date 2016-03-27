@@ -1,0 +1,47 @@
+#!/bin/bash
+
+operation=$1
+
+# get the libs
+source $(dirname $0)/util/loader.sh
+source $(dirname $0)/angular-2/scripts/loader.sh
+
+# list the help options
+if [ $operation == "help" ] ; then
+  helpDocs
+  exit 1
+fi
+
+# check for no arguments
+if [ "$*" == "" ] ; then
+  echo "No arguments provided, use ng help for options"
+  exit 1
+fi
+
+# at the moment all comands require two args so check it here
+if [ $# -lt 2 ] ; then
+  echo "At least two arguments are expected"
+  exit 1
+fi
+
+scriptPath=$(dirname $0)/angular
+
+# create a new project
+if [ $operation == "new" ] ; then
+  createProject $2
+elif [ $operation == 'component' ] ; then
+  createComponent $2
+elif [ $operation == 'interface' ] ; then
+  createInterface $2
+elif [ $operation == 'service' ] ; then
+  createService $2
+elif [ $operation == 'mock' ] ; then
+  createMock $2
+elif [ $operation == 'pipe' ] ; then
+  createPipe $2
+elif [ $operation == 'rm' ] ; then
+  removeItem $2 $3
+else
+  echo "Unknown command, please use ng help for more info on usage"
+  exit 1
+fi
