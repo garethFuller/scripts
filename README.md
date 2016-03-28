@@ -14,7 +14,11 @@ Use 'ng help' for list of options
 - ng mock mockName - create a new mock with supplied name
 - ng service serviceName - create a new service with given name
 - ng pipe pipeName - create a new pipe with given name
-- ng rm itemName - remove the item name from the system
+- ng rm type itemName - remove the item name from the system for example ng rm component sampleComponent
+
+Components are added to the route config and imported automatically into the app.ts file they are also removed from this file when using the ng rm command.
+
+Next iteration is going to generate / destroy test files also like ember cli
 
 ## Angular 1 generator
 
