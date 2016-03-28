@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function createModule {
+function createComponent {
 
   checkRoot
 
@@ -12,16 +12,18 @@ function createModule {
 
   # name of the component
   class=$( ucFirst $1 )
+
+  # TODO do the router?
   # path to the module in ui router (first seg of the kebab case)
   path=$( firstChunkHyphen $kebabCase )
 
   #copy over the component and use sed to replace the strings
   mkdir app/components/"$kebabCase"
-  cp -r "$scriptPath"/base/app/component/component ./app/components/"$kebabCase"
+  cp -r "$scriptPath"/base/app/components/component/ ./app/components/"$kebabCase"
 
   #replace the constants
   replaceIn ./app/components/"$kebabCase" "COMPONENT_NAME" "$kebabCase"
-  replaceIn ./src/scripts/modules/"$kebabCase" "COMPONENT_CLASS_NAME" "$class"
+  replaceIn ./app/components/"$kebabCase" "COMPONENT_CLASS_NAME" "$class"
 
   log "component $1 created"
 

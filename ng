@@ -24,7 +24,7 @@ if [ $# -lt 2 ] ; then
   exit 1
 fi
 
-scriptPath=$(dirname $0)/angular
+scriptPath=$(dirname $0)/angular-2
 
 # create a new project
 if [ $operation == "new" ] ; then
