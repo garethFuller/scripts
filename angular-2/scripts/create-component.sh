@@ -13,9 +13,8 @@ function createComponent {
   # name of the component
   class=$( ucFirst $1 )
 
-  # TODO do the router?
-  # path to the module in ui router (first seg of the kebab case)
-  path=$( firstChunkHyphen $kebabCase )
+  # add the component to the router
+  addRoute $kebabCase $class
 
   #copy over the component and use sed to replace the strings
   mkdir app/components/"$kebabCase"

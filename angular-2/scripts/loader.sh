@@ -10,3 +10,4 @@ source $(dirname $0)/angular-2/scripts/create-service.sh
 source $(dirname $0)/angular-2/scripts/create-interface.sh
 source $(dirname $0)/angular-2/scripts/create-mock.sh
 source $(dirname $0)/angular-2/scripts/create-pipe.sh
+source $(dirname $0)/angular-2/scripts/add-route.sh
