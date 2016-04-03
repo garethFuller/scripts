@@ -30,7 +30,7 @@ scriptPath=$(dirname $0)/angular-2
 if [ $operation == "new" ] ; then
   createProject $2
 elif [ $operation == 'component' ] ; then
-  createComponent $2
+  createComponent $2 $3
 elif [ $operation == 'interface' ] ; then
   createInterface $2
 elif [ $operation == 'service' ] ; then
@@ -41,6 +41,8 @@ elif [ $operation == 'pipe' ] ; then
   createPipe $2
 elif [ $operation == 'rm' ] ; then
   removeItem $2 $3
+elif [ $operation == 'lib' ] ; then
+  createLib $2
 else
   echo "Unknown command, please use ng help for more info on usage"
   exit 1

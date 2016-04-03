@@ -16,6 +16,8 @@ function createProject {
   mkdir app
   mkdir app/components
   touch app/components/.gitkeep
+  mkdir app/lib
+  touch app/lib/.gitkeep
   mkdir app/interfaces
   touch app/interfaces/.gitkeep
   mkdir app/mocks
