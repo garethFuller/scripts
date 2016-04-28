@@ -6,8 +6,18 @@ operation=$1
 
 if [ $operation == "build" ] ; then
   build $2
-elif [ $operation == 'clark' ] ; then
-  clark $2
+elif [ $operation == 'paths' ] ; then
+  paths
+elif [ $operation == 'apk' ] ; then
+  apk
+elif [ $operation == 'cb' ] ; then
+  calabash $2
+elif [ $operation == 'cbwip' ] ; then
+  calabashwip
+elif [ $operation == 'em' ] ; then
+  emulate
+elif [ $operation == 'clean' ] ; then
+  clean
 elif [ $operation == 'keygen' ] ; then
   keygen
 fi

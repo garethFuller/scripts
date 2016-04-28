@@ -1,0 +1,11 @@
+#!/bin/bash
+
+operation=$1
+
+if [ $operation == "ticket" ] ; then
+  cd ~/Development/application
+  bundle exec rake app:branch:ticket[$2]
+elif [ $operation == "integration" ] ; then
+  cd ~/Development/application
+  bundle exec rake app:branch:integration[$2]
+fi

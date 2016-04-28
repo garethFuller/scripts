@@ -1,10 +1,10 @@
 #!/bin/bash
 
-function clark {
+function paths {
   customPath="/Users/garethfuller/Development/AppAndroid/AppAndroid"
   replace="\/Users\/garethfuller\/Development\/AppAndroid\/AppAndroid"
   url="http:\/\/192\.168\.16\.15:3000"
-  devUrl="https:\/\/(.*)?@dev\.clark\.de"
+  devUrl="https:\/\/clark:clarkkent@dev\.clark\.de"
   devUrlTwo="https:\/\/dev\.clark\.de"
 
   # Swap the paths out in settings gradle file
@@ -14,9 +14,35 @@ function clark {
   replaceIn "$customPath/AndroidApp/src/main/java/de/clark/activities/LoginActivity.java" $devUrl $url
   replaceIn "$customPath/AndroidApp/src/main/java/de/clark/activities/LoginActivity.java" $devUrlTwo $url
 
-  # Build the app
-  cd ~/Development/AppAndroid/AppAndroid
-  ./AndroidApp/gradlew installDebug -PasX86 && adb shell am start -n de.clark/de.clark.activities.SplashActivity
-
   echo 'Done'
+}
+
+function emulate {
+  emulator @clark
+}
+
+function cdAnd {
+  cd ~/Development/AppAndroid/AppAndroid
+}
+
+function apk {
+  # Build the app
+  cdAnd
+  ./AndroidApp/gradlew clean installDebug -PasX86 && adb shell am start -n de.clark/de.clark.activities.SplashActivity
+  calabash-android resign /Users/garethfuller/Development/AppAndroid/AppAndroid/AndroidApp/build/outputs/apk/AndroidApp-debug.apk
+}
+
+function clean {
+  cdAnd
+  ./AndroidApp/gradlew clean
+}
+
+function calabash {
+  cdAnd
+  calabash-android $1 AndroidApp/build/outputs/apk/AndroidApp-debug.apk
+}
+
+function calabashwip {
+  cdAnd
+  calabash-android run AndroidApp/build/outputs/apk/AndroidApp-debug.apk --tags @wip
 }
