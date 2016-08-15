@@ -1,4 +1,5 @@
 #!/bin/bash
+source $(dirname $0)/clark_scripts/loader.sh
 
 operation=$1
 
@@ -8,4 +9,9 @@ if [ $operation == "ticket" ] ; then
 elif [ $operation == "integration" ] ; then
   cd ~/Development/application
   bundle exec rake app:branch:integration[$2]
+elif [ $operation == "release" ] ; then
+  cd ~/Development/application
+  bundle exec rake app:release
+elif [ $operation == 'importProd' ] ; then
+  importProd
 fi

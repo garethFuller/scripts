@@ -1,8 +1,8 @@
 #!/bin/bash
 
 function paths {
-  customPath="/Users/garethfuller/Development/AppAndroid/AppAndroid"
-  replace="\/Users\/garethfuller\/Development\/AppAndroid\/AppAndroid"
+  customPath="/Users/garethfuller/Development/AppAndroid"
+  replace="\/Users\/garethfuller\/Development\/AppAndroid"
   url="http:\/\/192\.168\.16\.15:3000"
   devUrl="https:\/\/clark:clarkkent@dev\.clark\.de"
   devUrlTwo="https:\/\/dev\.clark\.de"
@@ -22,14 +22,14 @@ function emulate {
 }
 
 function cdAnd {
-  cd ~/Development/AppAndroid/AppAndroid
+  cd ~/Development/AppAndroid
 }
 
 function apk {
   # Build the app
   cdAnd
   ./AndroidApp/gradlew clean installDebug -PasX86 && adb shell am start -n de.clark/de.clark.activities.SplashActivity
-  calabash-android resign /Users/garethfuller/Development/AppAndroid/AppAndroid/AndroidApp/build/outputs/apk/AndroidApp-debug.apk
+  calabash-android resign /Users/garethfuller/Development/AppAndroid/AndroidApp/build/outputs/apk/AndroidApp-debug.apk
 }
 
 function clean {
